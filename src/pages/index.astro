@@ -1,0 +1,508 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const skills = [
+  { name: "PostgreSQL", pct: 90, tone: "green", status: "RUNNING", kind: "running" },
+  { name: "Node.js", pct: 80, tone: "green", status: "RUNNING", kind: "running" },
+  { name: "FastAPI", pct: 70, tone: "green", status: "RUNNING", kind: "running" },
+  { name: "Supabase", pct: 75, tone: "green", status: "RUNNING", kind: "running" },
+  { name: "Docker", pct: 60, tone: "amber", status: "LEARNING", kind: "learning" },
+  { name: "Redis", pct: 55, tone: "gray", status: "STANDBY", kind: "standby" },
+  { name: "n8n / Flowise", pct: 65, tone: "amber", status: "LEARNING", kind: "learning" },
+  { name: "Tauri", pct: 50, tone: "gray", status: "STANDBY", kind: "standby" },
+];
+
+const projects = [
+  { id: "healthtribe", name: "HealthTribe API", status: "LIVE", kind: "live", stack: "FastAPI, Supabase", uptime: "99.2%" },
+  { id: "jewelry-erp", name: "Jewelry ERP", status: "LIVE", kind: "live", stack: "Tauri, SQLite", uptime: "98.7%" },
+  { id: "doccraft", name: "DocCraft AI", status: "LIVE", kind: "live", stack: "Claude API, Node", uptime: "99.9%" },
+  { id: "wa-bot", name: "WhatsApp Bot", status: "BETA", kind: "beta", stack: "n8n, Flowise", uptime: "97.1%" },
+];
+---
+
+<Layout>
+  <!-- ── top navigation bar ───────────────────────────── -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <span class="sys-pill"><span class="dot"></span>SYSTEM ONLINE</span>
+      <span class="topbar-name">Kaushal Rajput</span>
+      <span class="topbar-role">— Backend Engineer</span>
+    </div>
+    <div class="topbar-right">
+      <span class="badge badge-loc">📍 Mumbai, IN</span>
+      <span class="badge badge-green">UPTIME 99.9%</span>
+      <span class="badge badge-blue" id="clock">--:--:-- UTC</span>
+    </div>
+  </header>
+
+  <div class="shell">
+    <!-- ── sidebar ─────────────────────────────────────── -->
+    <nav class="sidebar" aria-label="Sections">
+      <div class="sidebar-label">~/kaushal</div>
+      <a class="nav-link" href="#/overview" data-route-link="overview"><span class="caret">&gt;</span>/overview</a>
+      <a class="nav-link" href="#/experience" data-route-link="experience"><span class="caret">&gt;</span>/experience</a>
+      <a class="nav-link" href="#/projects" data-route-link="projects"><span class="caret">&gt;</span>/projects</a>
+      <a class="nav-link" href="#/skills" data-route-link="skills"><span class="caret">&gt;</span>/skills</a>
+      <a class="nav-link" href="#/contact" data-route-link="contact"><span class="caret">&gt;</span>/contact</a>
+      <a class="nav-link nav-easter" href="#/logs" data-route-link="logs"><span class="caret">*</span>/logs</a>
+      <div class="sidebar-meta">
+        env: production<br />
+        region: ap-south-1<br />
+        build: v2026.6.11
+      </div>
+    </nav>
+
+    <!-- ── main panel ──────────────────────────────────── -->
+    <main class="main">
+      <!-- ═══ /overview ═══ -->
+      <section class="route" data-route="overview">
+        <div class="route-header">
+          <div class="route-path">~/kaushal/overview</div>
+          <h1 class="route-title">System Overview</h1>
+          <p class="route-sub">Primary node: one backend engineer, deployed in Mumbai. All services nominal.</p>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-value">3<span class="unit"> yrs</span></div>
+            <div class="stat-label">Experience</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">12<span class="unit">+</span></div>
+            <div class="stat-label">Projects Deployed</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">5</div>
+            <div class="stat-label">Tech Stacks</div>
+          </div>
+          <div class="stat-card stat-hire">
+            <div class="stat-value">✓ AVAILABLE</div>
+            <div class="stat-label">For Hire</div>
+          </div>
+        </div>
+
+        <div class="widget">
+          <div class="widget-head">
+            <span>runtime config</span>
+            <span class="head-tag">// system.config.js</span>
+          </div>
+          <pre class="codeblock" id="config-code" aria-label="system configuration"><span class="cursor"></span></pre>
+        </div>
+
+        <div class="widget">
+          <div class="widget-head"><span>description</span><span class="head-tag">README.md</span></div>
+          <div class="widget-body" style="font-size:14.5px; line-height:1.75; color:#cbd5e1; max-width:68ch;">
+            Backend developer who ships. I build APIs, automation pipelines, and the
+            occasional desktop app that ends up running a real business. Currently
+            maintaining production systems on <span class="mono" style="color:var(--accent)">FastAPI</span> and
+            <span class="mono" style="color:var(--accent)">Node.js</span>, with a soft spot for boring,
+            reliable infrastructure. If it has a queue, a cron job, or a webhook — I'm interested.
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ /experience ═══ -->
+      <section class="route" data-route="experience">
+        <div class="route-header">
+          <div class="route-path">~/kaushal/experience</div>
+          <h1 class="route-title">Event Log</h1>
+          <p class="route-sub">Chronological record of deployments, incidents, and upgrades to this engineer.</p>
+        </div>
+
+        <div class="widget">
+          <div class="widget-head"><span>journalctl -u career --no-pager</span><span class="head-tag">6 events</span></div>
+          <div class="log-view">
+            <div class="log-line"><span class="log-ts">[2025-05]</span> <span class="log-level success">SUCCESS</span> :: <span class="log-msg">Graduated <b>B.Sc. Computer Science</b> — Shankar Narayan College</span></div>
+            <div class="log-line"><span class="log-ts">[2023-25]</span> <span class="log-level info">INFO</span> :: <span class="log-msg"><b>Coding Trainer &amp; Developer</b> — St. Apollonia's School · taught programming, built internal tools</span></div>
+            <div class="log-line"><span class="log-ts">[2024]</span>&nbsp;&nbsp;&nbsp;<span class="log-level info">INFO</span> :: <span class="log-msg"><b>Backend Intern</b> — HealthTribe · FastAPI + Supabase, auth &amp; REST endpoints in production</span></div>
+            <div class="log-line"><span class="log-ts">[2024]</span>&nbsp;&nbsp;&nbsp;<span class="log-level warn">WARN</span> :: <span class="log-msg">Deployed <b>production ERP</b> for jewelry client · solo build, real users, no rollback plan needed</span></div>
+            <div class="log-line"><span class="log-ts">[2025]</span>&nbsp;&nbsp;&nbsp;<span class="log-level info">INFO</span> :: <span class="log-msg">Shipped <b>DocCraft AI</b> · LLM document pipeline on Claude API + Node</span></div>
+            <div class="log-line"><span class="log-ts">[2026]</span>&nbsp;&nbsp;&nbsp;<span class="log-level success">SUCCESS</span> :: <span class="log-msg">Status flag set → <b>open_to_work</b> · accepting backend roles</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ /projects ═══ -->
+      <section class="route" data-route="projects">
+        <div class="route-header">
+          <div class="route-path">~/kaushal/projects</div>
+          <h1 class="route-title">Active Deployments</h1>
+          <p class="route-sub">Click any service row for full deployment details.</p>
+        </div>
+
+        <div class="widget">
+          <div class="widget-head"><span>services · 4 running</span><span class="head-tag">refresh: live</span></div>
+          <div class="proj-table">
+            <div class="proj-thead">
+              <span>Service Name</span><span>Status</span><span class="col-stack">Stack</span><span>Uptime</span><span class="col-link" style="text-align:right">Link</span>
+            </div>
+            {projects.map((p) => (
+              <div class="proj-row" data-project={p.id} role="button" tabindex="0" aria-label={`Open details for ${p.name}`}>
+                <span class="proj-name">{p.name}</span>
+                <span class={`proj-status ${p.kind}`}><span class={`dot ${p.kind === "beta" ? "dot-amber" : ""}`}></span>{p.status}</span>
+                <span class="proj-stack col-stack">{p.stack}</span>
+                <span class="proj-uptime">{p.uptime}</span>
+                <span class="proj-link col-link">[→ View]</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ /skills ═══ -->
+      <section class="route" data-route="skills">
+        <div class="route-header">
+          <div class="route-path">~/kaushal/skills</div>
+          <h1 class="route-title">Service Health Monitor</h1>
+          <p class="route-sub">Each skill runs as a service. Capacity reflects production confidence, not tutorial hours.</p>
+        </div>
+
+        <div class="widget">
+          <div class="widget-head"><span>htop --skills</span><span class="head-tag">8 services</span></div>
+          <div class="svc-table" id="svc-table">
+            {skills.map((s) => (
+              <div class="svc-row">
+                <span class="svc-name">{s.name}</span>
+                <div class="bar"><div class={`bar-fill ${s.tone}`} style={`--pct:${s.pct}%`}></div></div>
+                <span class="svc-pct">{s.pct}%</span>
+                <span class={`svc-status ${s.kind}`}>
+                  <span class={`dot ${s.tone === "amber" ? "dot-amber" : s.tone === "gray" ? "dot-gray" : ""}`}></span>
+                  {s.status}
+                </span>
+              </div>
+            ))}
+          </div>
+          <div class="legend">
+            <i style="color:var(--green)">● strong</i>
+            <i style="color:var(--amber)">● learning</i>
+            <i>● familiar</i>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ /contact ═══ -->
+      <section class="route" data-route="contact">
+        <div class="route-header">
+          <div class="route-path">~/kaushal/contact</div>
+          <h1 class="route-title">API Reference — Contact</h1>
+          <p class="route-sub">One public endpoint. No auth required. Rate limit: be reasonable.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="widget">
+            <div class="endpoint-line">
+              <span class="method">POST</span>
+              <span class="endpoint-path">/api/contact</span>
+            </div>
+            <pre class="codeblock" is:raw>
+<span class="tok-com">// REQUEST BODY</span>
+{
+  <span class="tok-key">"name"</span>:    <span class="tok-str">"string"</span>,
+  <span class="tok-key">"email"</span>:   <span class="tok-str">"string"</span>,
+  <span class="tok-key">"message"</span>: <span class="tok-str">"string"</span>
+}
+
+<span class="tok-com">// RESPONSE 200</span>
+{
+  <span class="tok-key">"status"</span>: <span class="tok-str">"message_received"</span>,
+  <span class="tok-key">"eta"</span>:    <span class="tok-str">"24h"</span>
+}</pre>
+          </div>
+
+          <div class="widget">
+            <div class="widget-head"><span>request builder</span><span class="head-tag">try it ↓</span></div>
+            <form class="api-form" id="contact-form" novalidate>
+              <div class="field">
+                <label for="f-name">name <span class="req">*</span></label>
+                <input id="f-name" name="name" type="text" required placeholder='"Ada Lovelace"' autocomplete="name" />
+              </div>
+              <div class="field">
+                <label for="f-email">email <span class="req">*</span></label>
+                <input id="f-email" name="email" type="email" required placeholder='"ada@analytical.engine"' autocomplete="email" />
+              </div>
+              <div class="field">
+                <label for="f-message">message <span class="req">*</span></label>
+                <textarea id="f-message" name="message" rows="4" required placeholder='"Let&apos;s build something."'></textarea>
+              </div>
+              <button class="send-btn" type="submit" id="send-btn">▶ Send Request</button>
+            </form>
+            <div class="response-block" id="response-block">
+              <div class="response-status" id="response-status">HTTP/1.1 200 OK · 142ms</div>
+              <pre class="codeblock" id="response-body"></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ /logs (easter egg) ═══ -->
+      <section class="route" data-route="logs">
+        <div class="route-header">
+          <div class="route-path">~/kaushal/logs</div>
+          <h1 class="route-title">tail -f /var/log/kaushal.log</h1>
+          <p class="route-sub">You found the logs. This is what actually runs in the background.</p>
+        </div>
+
+        <div class="widget">
+          <div class="widget-head"><span>live stream</span><span class="head-tag" style="color:var(--green)">● streaming</span></div>
+          <div class="term" id="term" aria-live="off"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ── project drawer ─────────────────────────────────── -->
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-head">
+      <span style="font-size:12px; color:var(--muted)" id="drawer-path">/projects/—</span>
+      <button class="drawer-close" id="drawer-close" type="button">ESC ✕</button>
+    </div>
+    <div class="drawer-body" id="drawer-body"></div>
+  </aside>
+
+  <!-- ── toast ──────────────────────────────────────────── -->
+  <div class="toast" id="toast" role="status">✅ 200 OK — Message delivered</div>
+
+  <!-- ── status bar ─────────────────────────────────────── -->
+  <footer class="statusbar">
+    <span><span class="ok">●</span> all systems operational</span>
+    <div class="statusbar-right">
+      <span>node v24.x</span>
+      <span>mem 512MB</span>
+      <span>ap-south-1 (Mumbai)</span>
+    </div>
+  </footer>
+
+  <script>
+    /* ───────── live clock ───────── */
+    const clock = document.getElementById("clock")!;
+    const tick = () => {
+      clock.textContent =
+        new Date().toLocaleTimeString("en-GB", { timeZone: "UTC", hour12: false }) + " UTC";
+    };
+    tick();
+    setInterval(tick, 1000);
+
+    /* ───────── hash router ───────── */
+    const ROUTES = ["overview", "experience", "projects", "skills", "contact", "logs"];
+    const sections = document.querySelectorAll<HTMLElement>("[data-route]");
+    const links = document.querySelectorAll<HTMLElement>("[data-route-link]");
+    let typedOnce = false;
+    let logsTimer: ReturnType<typeof setTimeout> | null = null;
+
+    function activate(route: string) {
+      if (!ROUTES.includes(route)) route = "overview";
+      sections.forEach((s) => s.classList.toggle("active", s.dataset.route === route));
+      links.forEach((l) => l.classList.toggle("active", l.dataset.routeLink === route));
+      document.title = `kaushal@portfolio:~/${route}`;
+
+      if (route === "overview" && !typedOnce) { typedOnce = true; typeConfig(); }
+      if (route === "skills") {
+        const t = document.getElementById("svc-table")!;
+        t.classList.remove("animate");
+        requestAnimationFrame(() => requestAnimationFrame(() => t.classList.add("animate")));
+      }
+      if (route === "logs") startLogs();
+      else stopLogs();
+    }
+
+    const currentRoute = () => location.hash.replace(/^#\/?/, "") || "overview";
+    window.addEventListener("hashchange", () => activate(currentRoute()));
+    activate(currentRoute());
+
+    /* ───────── typing animation: system.config.js ───────── */
+    type Tok = { t: string; c?: string };
+    const CONFIG_LINES: Tok[][] = [
+      [{ t: "// system.config.js — last deploy: 2026-06-11", c: "tok-com" }],
+      [{ t: "module", c: "tok-kw" }, { t: ".exports = {", c: "tok-punc" }],
+      [{ t: "  name", c: "tok-key" }, { t: ": ", c: "tok-punc" }, { t: '"Kaushal Rajput"', c: "tok-str" }, { t: ",", c: "tok-punc" }],
+      [{ t: "  role", c: "tok-key" }, { t: ": ", c: "tok-punc" }, { t: '"Backend Developer"', c: "tok-str" }, { t: ",", c: "tok-punc" }],
+      [{ t: "  stack", c: "tok-key" }, { t: ": [", c: "tok-punc" }, { t: '"Node.js"', c: "tok-str" }, { t: ", ", c: "tok-punc" }, { t: '"FastAPI"', c: "tok-str" }, { t: ", ", c: "tok-punc" }, { t: '"PostgreSQL"', c: "tok-str" }, { t: ", ", c: "tok-punc" }, { t: '"Docker"', c: "tok-str" }, { t: "],", c: "tok-punc" }],
+      [{ t: "  status", c: "tok-key" }, { t: ": ", c: "tok-punc" }, { t: '"open_to_work"', c: "tok-str" }, { t: ",", c: "tok-punc" }, { t: "  // recruiters: this flag is for you", c: "tok-com" }],
+      [{ t: "  location", c: "tok-key" }, { t: ": ", c: "tok-punc" }, { t: '"Mumbai, IN"', c: "tok-str" }, { t: ",", c: "tok-punc" }],
+      [{ t: "  caffeine", c: "tok-key" }, { t: ": ", c: "tok-punc" }, { t: '"chai > coffee"', c: "tok-str" }, { t: ",", c: "tok-punc" }],
+      [{ t: "};", c: "tok-punc" }],
+    ];
+
+    function typeConfig() {
+      const pre = document.getElementById("config-code")!;
+      const cursor = pre.querySelector(".cursor")!;
+      const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      let li = 0, ti = 0, ci = 0;
+      let span: HTMLSpanElement | null = null;
+
+      function step() {
+        if (li >= CONFIG_LINES.length) return;
+        const line = CONFIG_LINES[li];
+        if (ti >= line.length) {
+          pre.insertBefore(document.createTextNode("\n"), cursor);
+          li++; ti = 0; ci = 0; span = null;
+          setTimeout(step, 30);
+          return;
+        }
+        const tok = line[ti];
+        if (!span) {
+          span = document.createElement("span");
+          if (tok.c) span.className = tok.c;
+          pre.insertBefore(span, cursor);
+        }
+        ci++;
+        span.textContent = tok.t.slice(0, ci);
+        if (ci >= tok.t.length) { ti++; ci = 0; span = null; }
+        setTimeout(step, reduced ? 0 : 9 + Math.random() * 18);
+      }
+      setTimeout(step, 350);
+    }
+
+    /* ───────── project drawer ───────── */
+    const PROJECTS: Record<string, any> = {
+      healthtribe: {
+        name: "HealthTribe API",
+        status: "● LIVE", statusColor: "var(--green)",
+        desc: "Production backend for a health & wellness platform, built during my internship. Designed REST endpoints, JWT auth flows, and row-level-security policies. Survived real traffic and real product pivots.",
+        kv: { uptime: "99.2%", "first deploy": "2024-08", db: "Supabase (Postgres)", auth: "JWT + RLS" },
+        tags: ["FastAPI", "Supabase", "PostgreSQL", "Pydantic", "REST"],
+        links: [{ label: "→ View Code", href: "#" }],
+      },
+      "jewelry-erp": {
+        name: "Jewelry ERP",
+        status: "● LIVE", statusColor: "var(--green)",
+        desc: "Full desktop ERP for a jewelry business — invoicing, stock, GST reports, customer ledgers. Built solo with Tauri + SQLite, deployed on the client's machines, and used daily to run the shop.",
+        kv: { uptime: "98.7%", "first deploy": "2024-11", db: "SQLite (local-first)", users: "real, paying" },
+        tags: ["Tauri", "Rust", "SQLite", "TypeScript", "Desktop"],
+        links: [{ label: "→ Case Study", href: "#" }],
+      },
+      doccraft: {
+        name: "DocCraft AI",
+        status: "● LIVE", statusColor: "var(--green)",
+        desc: "LLM-powered document generation pipeline. Node service orchestrating Claude API calls with templated prompts, streaming output, and retry/backoff handling. Turns structured input into polished documents.",
+        kv: { uptime: "99.9%", "first deploy": "2025-03", llm: "Claude API", runtime: "Node.js" },
+        tags: ["Claude API", "Node.js", "Streaming", "Prompt Design"],
+        links: [{ label: "→ View Code", href: "#" }],
+      },
+      "wa-bot": {
+        name: "WhatsApp Bot",
+        status: "◉ BETA", statusColor: "var(--amber)",
+        desc: "Conversational automation on WhatsApp using n8n workflows and a Flowise RAG agent. Handles FAQs, lead capture, and handoff to a human when it gets out of its depth (it knows its depth).",
+        kv: { uptime: "97.1%", stage: "beta", flow: "n8n + Flowise", channel: "WhatsApp Business" },
+        tags: ["n8n", "Flowise", "RAG", "Webhooks", "Automation"],
+        links: [{ label: "→ Demo", href: "#" }],
+      },
+    };
+
+    const drawer = document.getElementById("drawer")!;
+    const drawerBody = document.getElementById("drawer-body")!;
+    const drawerPath = document.getElementById("drawer-path")!;
+
+    function openDrawer(id: string) {
+      const p = PROJECTS[id];
+      if (!p) return;
+      drawerPath.textContent = `/projects/${id}`;
+      drawerBody.innerHTML = `
+        <h3>${p.name}</h3>
+        <span class="mono" style="font-size:12px; color:${p.statusColor}">${p.status}</span>
+        <p class="drawer-desc">${p.desc}</p>
+        <dl class="kv">${Object.entries(p.kv).map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>
+        <div class="tags">${p.tags.map((t: string) => `<span class="tag">${t}</span>`).join("")}</div>
+        <div class="drawer-links">${p.links.map((l: any) => `<a class="btn btn-solid" href="${l.href}">${l.label}</a>`).join("")}</div>`;
+      document.body.classList.add("drawer-open");
+      drawer.setAttribute("aria-hidden", "false");
+    }
+    function closeDrawer() {
+      document.body.classList.remove("drawer-open");
+      drawer.setAttribute("aria-hidden", "true");
+    }
+
+    document.querySelectorAll<HTMLElement>("[data-project]").forEach((row) => {
+      row.addEventListener("click", () => openDrawer(row.dataset.project!));
+      row.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openDrawer(row.dataset.project!); }
+      });
+    });
+    document.getElementById("drawer-close")!.addEventListener("click", closeDrawer);
+    document.getElementById("drawer-backdrop")!.addEventListener("click", closeDrawer);
+    window.addEventListener("keydown", (e) => { if (e.key === "Escape") closeDrawer(); });
+
+    /* ───────── contact form ───────── */
+    const form = document.getElementById("contact-form") as HTMLFormElement;
+    const sendBtn = document.getElementById("send-btn") as HTMLButtonElement;
+    const respBlock = document.getElementById("response-block")!;
+    const respStatus = document.getElementById("response-status")!;
+    const respBody = document.getElementById("response-body")!;
+    const toast = document.getElementById("toast")!;
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      sendBtn.disabled = true;
+      sendBtn.textContent = "⠋ Sending…";
+      const ms = 380 + Math.floor(Math.random() * 400);
+
+      setTimeout(() => {
+        // TODO: wire to EmailJS / API route — this simulates the 200 for now
+        const data = new FormData(form);
+        respStatus.textContent = `HTTP/1.1 200 OK · ${ms}ms`;
+        respBody.textContent = JSON.stringify(
+          { status: "message_received", from: data.get("email"), eta: "24h" },
+          null, 2
+        );
+        respBlock.classList.add("show");
+        sendBtn.disabled = false;
+        sendBtn.textContent = "▶ Send Request";
+        form.reset();
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 3200);
+      }, ms);
+    });
+
+    /* ───────── /logs terminal ───────── */
+    const TERM_LINES: { m: string; c: string }[] = [
+      { m: "Boot sequence complete. Mounting /dev/motivation…", c: "lvl-info" },
+      { m: "Building side projects…", c: "lvl-info" },
+      { m: "Drinking chai… ☕", c: "lvl-warn" },
+      { m: "Pushing to main (no tests, living dangerously)", c: "lvl-err" },
+      { m: 'git commit -m "fix: actually fix the bug this time"', c: "lvl-ok" },
+      { m: "Reading Postgres docs for fun. Again.", c: "lvl-dim" },
+      { m: "npm install… (this may take a lifetime)", c: "lvl-dim" },
+      { m: "Webhook received → it was a health check. It's always a health check.", c: "lvl-info" },
+      { m: "Refactoring code nobody asked me to refactor", c: "lvl-warn" },
+      { m: 'docker ps → 14 containers, 3 of them mysteries', c: "lvl-info" },
+      { m: "Explaining to client why the cloud is not literally a cloud", c: "lvl-dim" },
+      { m: "Latency to chai shop: 4ms. Acceptable.", c: "lvl-ok" },
+      { m: "TODO found from 2024. Status: still TODO.", c: "lvl-warn" },
+      { m: 'SELECT * FROM motivation WHERE day = "Monday" → 0 rows', c: "lvl-err" },
+      { m: "Recruiter ping detected. Routing to /contact…", c: "lvl-ok" },
+      { m: "All services nominal. Kaushal is online.", c: "lvl-ok" },
+    ];
+
+    const term = document.getElementById("term")!;
+    let termIdx = 0;
+
+    function pad(n: number) { return String(n).padStart(2, "0"); }
+    function pushTermLine() {
+      const d = new Date();
+      const ts = `[${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}:${pad(d.getUTCSeconds())}]`;
+      const entry = TERM_LINES[termIdx % TERM_LINES.length];
+      termIdx++;
+      const div = document.createElement("div");
+      div.className = `term-line ${entry.c}`;
+      div.innerHTML = `<span class="t">${ts}</span> ${entry.m.replace(/&/g, "&amp;").replace(/</g, "&lt;")}`;
+      term.appendChild(div);
+      while (term.children.length > 60) term.removeChild(term.firstChild!);
+      term.scrollTop = term.scrollHeight;
+    }
+
+    function startLogs() {
+      if (logsTimer) return;
+      if (term.children.length === 0) for (let i = 0; i < 5; i++) pushTermLine();
+      const loop = () => {
+        pushTermLine();
+        logsTimer = setTimeout(loop, 700 + Math.random() * 1400);
+      };
+      logsTimer = setTimeout(loop, 600);
+    }
+    function stopLogs() {
+      if (logsTimer) { clearTimeout(logsTimer); logsTimer = null; }
+    }
+  </script>
+</Layout>
