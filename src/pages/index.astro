@@ -2,21 +2,27 @@
 import Layout from "../layouts/Layout.astro";
 
 const skills = [
-  { name: "PostgreSQL", pct: 90, tone: "green", status: "RUNNING", kind: "running" },
-  { name: "Node.js", pct: 80, tone: "green", status: "RUNNING", kind: "running" },
-  { name: "FastAPI", pct: 70, tone: "green", status: "RUNNING", kind: "running" },
+  { name: "TypeScript / React", pct: 88, tone: "green", status: "RUNNING", kind: "running" },
+  { name: "PostgreSQL", pct: 85, tone: "green", status: "RUNNING", kind: "running" },
+  { name: "Python / FastAPI", pct: 85, tone: "green", status: "RUNNING", kind: "running" },
+  { name: "Node.js / Express", pct: 80, tone: "green", status: "RUNNING", kind: "running" },
+  { name: "Next.js", pct: 78, tone: "green", status: "RUNNING", kind: "running" },
+  { name: "LLM APIs / RAG / MCP", pct: 75, tone: "green", status: "RUNNING", kind: "running" },
+  { name: "OpenTelemetry / Prometheus", pct: 70, tone: "green", status: "RUNNING", kind: "running" },
   { name: "Supabase", pct: 75, tone: "green", status: "RUNNING", kind: "running" },
-  { name: "Docker", pct: 60, tone: "amber", status: "LEARNING", kind: "learning" },
+  { name: "Docker", pct: 65, tone: "amber", status: "LEARNING", kind: "learning" },
+  { name: "Kubernetes", pct: 55, tone: "amber", status: "LEARNING", kind: "learning" },
   { name: "Redis", pct: 55, tone: "gray", status: "STANDBY", kind: "standby" },
-  { name: "n8n / Flowise", pct: 65, tone: "amber", status: "LEARNING", kind: "learning" },
-  { name: "Tauri", pct: 50, tone: "gray", status: "STANDBY", kind: "standby" },
+  { name: "Flutter", pct: 55, tone: "gray", status: "STANDBY", kind: "standby" },
 ];
 
 const projects = [
-  { id: "healthtribe", name: "HealthTribe API", status: "LIVE", kind: "live", stack: "FastAPI, Supabase", uptime: "99.2%" },
-  { id: "jewelry-erp", name: "Jewelry ERP", status: "LIVE", kind: "live", stack: "Tauri, SQLite", uptime: "98.7%" },
-  { id: "doccraft", name: "DocCraft AI", status: "LIVE", kind: "live", stack: "Claude API, Node", uptime: "99.9%" },
-  { id: "wa-bot", name: "WhatsApp Bot", status: "BETA", kind: "beta", stack: "n8n, Flowise", uptime: "97.1%" },
+  { id: "agenttrace", name: "AgentTrace", status: "LIVE", kind: "live", stack: "OTel, Prometheus, K8s", detail: "multi-agent tracing" },
+  { id: "page-pulse", name: "Page Pulse", status: "LIVE", kind: "live", stack: "TypeScript, Next.js", detail: "28 checks / audit" },
+  { id: "jewelry-erp", name: "Jewel-ERP", status: "LIVE", kind: "live", stack: "React 19, TS, IndexedDB", detail: "runs a real shop" },
+  { id: "smartcut", name: "SmartCut MCP", status: "LIVE", kind: "live", stack: "Python, MCP", detail: "agent-driven editing" },
+  { id: "healthtribe", name: "HealthTribe API", status: "LIVE", kind: "live", stack: "FastAPI, Supabase", detail: "shipped in prod" },
+  { id: "wa-bot", name: "WhatsApp Bot", status: "BETA", kind: "beta", stack: "n8n, Flowise", detail: "FAQ + lead capture" },
 ];
 ---
 
@@ -26,11 +32,11 @@ const projects = [
     <div class="topbar-left">
       <span class="sys-pill"><span class="dot"></span>SYSTEM ONLINE</span>
       <span class="topbar-name">Kaushal Rajput</span>
-      <span class="topbar-role">— Backend Engineer</span>
+      <span class="topbar-role">— Full-Stack &amp; AI Engineer</span>
     </div>
     <div class="topbar-right">
       <span class="badge badge-loc">📍 Mumbai, IN</span>
-      <span class="badge badge-green">UPTIME 99.9%</span>
+      <span class="badge badge-green">OPEN TO WORK</span>
       <span class="badge badge-blue" id="clock">--:--:-- UTC</span>
     </div>
   </header>
@@ -59,12 +65,12 @@ const projects = [
         <div class="route-header">
           <div class="route-path">~/kaushal/overview</div>
           <h1 class="route-title">System Overview</h1>
-          <p class="route-sub">Primary node: one backend engineer, deployed in Mumbai. All services nominal.</p>
+          <p class="route-sub">Primary node: one full-stack engineer, deployed in Mumbai. All services nominal.</p>
         </div>
 
         <div class="stat-grid">
           <div class="stat-card">
-            <div class="stat-value">3<span class="unit"> yrs</span></div>
+            <div class="stat-value">2<span class="unit">+ yrs</span></div>
             <div class="stat-label">Experience</div>
           </div>
           <div class="stat-card">
@@ -92,11 +98,17 @@ const projects = [
         <div class="widget">
           <div class="widget-head"><span>description</span><span class="head-tag">README.md</span></div>
           <div class="widget-body" style="font-size:14.5px; line-height:1.75; color:#cbd5e1; max-width:68ch;">
-            Backend developer who ships. I build APIs, automation pipelines, and the
-            occasional desktop app that ends up running a real business. Currently
-            maintaining production systems on <span class="mono" style="color:var(--accent)">FastAPI</span> and
-            <span class="mono" style="color:var(--accent)">Node.js</span>, with a soft spot for boring,
-            reliable infrastructure. If it has a queue, a cron job, or a webhook — I'm interested.
+            Full-stack developer who ships. I build APIs, front ends, and the occasional
+            ERP that ends up running a real business. Currently full-stack at
+            <span class="mono" style="color:var(--accent)">AVMSmiles</span>, working across
+            <span class="mono" style="color:var(--accent)">FastAPI</span>,
+            <span class="mono" style="color:var(--accent)">Node.js</span> and
+            <span class="mono" style="color:var(--accent)">React</span>.
+            <br /><br />
+            The part I care most about is agentic AI you can actually debug — LLM pipelines
+            with distributed tracing, per-hop metrics and trace-linked logs, so a failed agent
+            run has a root cause instead of a shrug. If it has a queue, a cron job, a webhook
+            or a span — I'm interested.
           </div>
         </div>
       </section>
@@ -110,14 +122,15 @@ const projects = [
         </div>
 
         <div class="widget">
-          <div class="widget-head"><span>journalctl -u career --no-pager</span><span class="head-tag">6 events</span></div>
+          <div class="widget-head"><span>journalctl -u career --no-pager</span><span class="head-tag">7 events</span></div>
           <div class="log-view">
-            <div class="log-line"><span class="log-ts">[2025-05]</span> <span class="log-level success">SUCCESS</span> :: <span class="log-msg">Graduated <b>B.Sc. Computer Science</b> — Shankar Narayan College</span></div>
-            <div class="log-line"><span class="log-ts">[2023-25]</span> <span class="log-level info">INFO</span> :: <span class="log-msg"><b>Coding Trainer &amp; Developer</b> — St. Apollonia's School · taught programming, built internal tools</span></div>
-            <div class="log-line"><span class="log-ts">[2024]</span>&nbsp;&nbsp;&nbsp;<span class="log-level info">INFO</span> :: <span class="log-msg"><b>Backend Intern</b> — HealthTribe · FastAPI + Supabase, auth &amp; REST endpoints in production</span></div>
-            <div class="log-line"><span class="log-ts">[2024]</span>&nbsp;&nbsp;&nbsp;<span class="log-level warn">WARN</span> :: <span class="log-msg">Deployed <b>production ERP</b> for jewelry client · solo build, real users, no rollback plan needed</span></div>
-            <div class="log-line"><span class="log-ts">[2025]</span>&nbsp;&nbsp;&nbsp;<span class="log-level info">INFO</span> :: <span class="log-msg">Shipped <b>DocCraft AI</b> · LLM document pipeline on Claude API + Node</span></div>
-            <div class="log-line"><span class="log-ts">[2026]</span>&nbsp;&nbsp;&nbsp;<span class="log-level success">SUCCESS</span> :: <span class="log-msg">Status flag set → <b>open_to_work</b> · accepting backend roles</span></div>
+            <div class="log-line"><span class="log-ts">[2024-25]</span> <span class="log-level info">INFO</span> :: <span class="log-msg"><b>Robotics Trainer &amp; Web Developer</b> — Anthony Group of Schools (St. Apollonia's) · taught robotics &amp; programming, built and deployed internal web apps</span></div>
+            <div class="log-line"><span class="log-ts">[2024]</span>&nbsp;&nbsp;&nbsp;<span class="log-level warn">WARN</span> :: <span class="log-msg">Deployed <b>Jewel-ERP</b> for a jewellery retailer · solo build, real users, still running the shop</span></div>
+            <div class="log-line"><span class="log-ts">[2025-11]</span> <span class="log-level info">INFO</span> :: <span class="log-msg"><b>Backend Developer</b> — HealthTribe · FastAPI + Node, JWT/OTP auth, Supabase schema, shipped to production (6 months)</span></div>
+            <div class="log-line"><span class="log-ts">[2026-05]</span> <span class="log-level success">SUCCESS</span> :: <span class="log-msg"><b>Full-Stack Web Developer</b> — AVMSmiles · current role · schema → REST API → React → deploy</span></div>
+            <div class="log-line"><span class="log-ts">[2026-07]</span> <span class="log-level info">INFO</span> :: <span class="log-msg">Shipped <b>AgentTrace</b> · multi-agent LLM pipeline on Kubernetes, fully instrumented with OpenTelemetry, Prometheus, Grafana, Loki &amp; Tempo</span></div>
+            <div class="log-line"><span class="log-ts">[2026-12]</span> <span class="log-level info">INFO</span> :: <span class="log-msg">Expected: <b>B.Sc. Computer Science</b> — Shankar Narayan College, University of Mumbai</span></div>
+            <div class="log-line"><span class="log-ts">[now]</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="log-level success">SUCCESS</span> :: <span class="log-msg">Status flag set → <b>open_to_work</b> · full-stack, AI &amp; agentic engineering roles</span></div>
           </div>
         </div>
       </section>
@@ -131,17 +144,17 @@ const projects = [
         </div>
 
         <div class="widget">
-          <div class="widget-head"><span>services · 4 running</span><span class="head-tag">refresh: live</span></div>
+          <div class="widget-head"><span>services · 6 running</span><span class="head-tag">refresh: live</span></div>
           <div class="proj-table">
             <div class="proj-thead">
-              <span>Service Name</span><span>Status</span><span class="col-stack">Stack</span><span>Uptime</span><span class="col-link" style="text-align:right">Link</span>
+              <span>Service Name</span><span>Status</span><span class="col-stack">Stack</span><span>Notes</span><span class="col-link" style="text-align:right">Link</span>
             </div>
             {projects.map((p) => (
               <div class="proj-row" data-project={p.id} role="button" tabindex="0" aria-label={`Open details for ${p.name}`}>
                 <span class="proj-name">{p.name}</span>
                 <span class={`proj-status ${p.kind}`}><span class={`dot ${p.kind === "beta" ? "dot-amber" : ""}`}></span>{p.status}</span>
                 <span class="proj-stack col-stack">{p.stack}</span>
-                <span class="proj-uptime">{p.uptime}</span>
+                <span class="proj-uptime">{p.detail}</span>
                 <span class="proj-link col-link">[→ View]</span>
               </div>
             ))}
@@ -158,7 +171,7 @@ const projects = [
         </div>
 
         <div class="widget">
-          <div class="widget-head"><span>htop --skills</span><span class="head-tag">8 services</span></div>
+          <div class="widget-head"><span>htop --skills</span><span class="head-tag">12 services</span></div>
           <div class="svc-table" id="svc-table">
             {skills.map((s) => (
               <div class="svc-row">
@@ -313,11 +326,13 @@ const projects = [
     /* ───────── typing animation: system.config.js ───────── */
     type Tok = { t: string; c?: string };
     const CONFIG_LINES: Tok[][] = [
-      [{ t: "// system.config.js — last deploy: 2026-06-11", c: "tok-com" }],
+      [{ t: "// system.config.js — last deploy: 2026-08-10", c: "tok-com" }],
       [{ t: "module", c: "tok-kw" }, { t: ".exports = {", c: "tok-punc" }],
       [{ t: "  name", c: "tok-key" }, { t: ": ", c: "tok-punc" }, { t: '"Kaushal Rajput"', c: "tok-str" }, { t: ",", c: "tok-punc" }],
-      [{ t: "  role", c: "tok-key" }, { t: ": ", c: "tok-punc" }, { t: '"Backend Developer"', c: "tok-str" }, { t: ",", c: "tok-punc" }],
-      [{ t: "  stack", c: "tok-key" }, { t: ": [", c: "tok-punc" }, { t: '"Node.js"', c: "tok-str" }, { t: ", ", c: "tok-punc" }, { t: '"FastAPI"', c: "tok-str" }, { t: ", ", c: "tok-punc" }, { t: '"PostgreSQL"', c: "tok-str" }, { t: ", ", c: "tok-punc" }, { t: '"Docker"', c: "tok-str" }, { t: "],", c: "tok-punc" }],
+      [{ t: "  role", c: "tok-key" }, { t: ": ", c: "tok-punc" }, { t: '"Full-Stack & AI Engineer"', c: "tok-str" }, { t: ",", c: "tok-punc" }],
+      [{ t: "  company", c: "tok-key" }, { t: ": ", c: "tok-punc" }, { t: '"AVMSmiles"', c: "tok-str" }, { t: ",", c: "tok-punc" }],
+      [{ t: "  stack", c: "tok-key" }, { t: ": [", c: "tok-punc" }, { t: '"React"', c: "tok-str" }, { t: ", ", c: "tok-punc" }, { t: '"Next.js"', c: "tok-str" }, { t: ", ", c: "tok-punc" }, { t: '"FastAPI"', c: "tok-str" }, { t: ", ", c: "tok-punc" }, { t: '"Node.js"', c: "tok-str" }, { t: ", ", c: "tok-punc" }, { t: '"PostgreSQL"', c: "tok-str" }, { t: "],", c: "tok-punc" }],
+      [{ t: "  focus", c: "tok-key" }, { t: ": [", c: "tok-punc" }, { t: '"agentic AI"', c: "tok-str" }, { t: ", ", c: "tok-punc" }, { t: '"observability"', c: "tok-str" }, { t: ", ", c: "tok-punc" }, { t: '"MCP"', c: "tok-str" }, { t: "],", c: "tok-punc" }],
       [{ t: "  status", c: "tok-key" }, { t: ": ", c: "tok-punc" }, { t: '"open_to_work"', c: "tok-str" }, { t: ",", c: "tok-punc" }, { t: "  // recruiters: this flag is for you", c: "tok-com" }],
       [{ t: "  location", c: "tok-key" }, { t: ": ", c: "tok-punc" }, { t: '"Mumbai, IN"', c: "tok-str" }, { t: ",", c: "tok-punc" }],
       [{ t: "  caffeine", c: "tok-key" }, { t: ": ", c: "tok-punc" }, { t: '"chai > coffee"', c: "tok-str" }, { t: ",", c: "tok-punc" }],
@@ -356,37 +371,53 @@ const projects = [
 
     /* ───────── project drawer ───────── */
     const PROJECTS: Record<string, any> = {
+      agenttrace: {
+        name: "AgentTrace",
+        status: "● LIVE", statusColor: "var(--green)",
+        desc: "Full observability stack for a multi-agent LLM pipeline — planner → tool call → FAISS retriever → LLM — deployed on Kubernetes. Every run emits one distributed trace: a span per hop plus a span per tool call including retries, per-hop latency and token usage and tool failure rates as Prometheus metrics, and structured JSON logs stamped with the trace_id. A failed run goes dashboard → trace → logs → root cause in about a minute.",
+        kv: { runtime: "FastAPI, 2 replicas", orchestration: "Kubernetes (kind)", traces: "OTel → Tempo", logs: "Promtail → Loki" },
+        tags: ["OpenTelemetry", "Prometheus", "Grafana", "Loki", "Tempo", "Kubernetes", "FAISS"],
+        links: [{ label: "→ View Code", href: "https://github.com/KAUSHALCODER123/-AgentTrace" }],
+      },
+      "page-pulse": {
+        name: "Page Pulse",
+        status: "● LIVE", statusColor: "var(--green)",
+        desc: "A URL audit service built to production spec rather than demo spec. One fetch per request, 28 deterministic checks across delivery, SEO, metadata, accessibility and security headers, returning a weighted score plus the evidence behind every verdict. The interesting parts are the timeouts, admission control, response cache, SSRF guard on user-supplied URLs, and the structured error taxonomy.",
+        kv: { checks: "28 deterministic", scale: "designed for 10k audits/day", guard: "SSRF + admission control", ci: "GitHub Actions" },
+        tags: ["TypeScript", "Next.js", "Node.js", "Vercel", "CI"],
+        links: [{ label: "→ View Code", href: "https://github.com/KAUSHALCODER123/-Production-grade-Page-Pulse" }],
+      },
+      "jewelry-erp": {
+        name: "Jewel-ERP",
+        status: "● LIVE", statusColor: "var(--green)",
+        desc: "Offline-first jewellery retail ERP, built solo and running a real shop. POS with barcode scanning, item master with HUID, customers and KYC, purchases and suppliers, gold savings schemes, Girvi gold loans, Karigar metal tracking, order booking, day book, and full GST — CGST/SGST/IGST, TCS, URD old-gold exchange — with GSTR-1 reporting and CSV export.",
+        kv: { storage: "Dexie / IndexedDB", isolation: "multi-firm + RBAC", users: "real, daily", desktop: "Tauri wrap planned" },
+        tags: ["React 19", "TypeScript", "Vite", "Tailwind", "Zustand", "React Query", "Zod"],
+        links: [{ label: "→ View Code", href: "https://github.com/KAUSHALCODER123/jewllery-erpp" }],
+      },
+      smartcut: {
+        name: "SmartCut MCP",
+        status: "● LIVE", statusColor: "var(--green)",
+        desc: "A Model Context Protocol server that lets an LLM agent edit real CapCut projects — editing operations exposed as callable tools rather than chat output. Parses the generated subtitle track to detect silences and duplicate takes, then cuts them. Runs fully locally with no API key; an optional LLM path improves duplicate detection while the deterministic heuristic stays the default.",
+        kv: { protocol: "MCP", runtime: "Python 3.10+", mode: "local-first, no API key", optional: "LLM-enhanced dedupe" },
+        tags: ["MCP", "Python", "Agent Tooling", "Heuristics"],
+        links: [{ label: "→ View Code", href: "https://github.com/KAUSHALCODER123/Capcut-claude-editing-ai-tool" }],
+      },
       healthtribe: {
         name: "HealthTribe API",
         status: "● LIVE", statusColor: "var(--green)",
-        desc: "Production backend for a health & wellness platform, built during my internship. Designed REST endpoints, JWT auth flows, and row-level-security policies. Survived real traffic and real product pivots.",
-        kv: { uptime: "99.2%", "first deploy": "2024-08", db: "Supabase (Postgres)", auth: "JWT + RLS" },
-        tags: ["FastAPI", "Supabase", "PostgreSQL", "Pydantic", "REST"],
-        links: [{ label: "→ View Code", href: "#" }],
-      },
-      "jewelry-erp": {
-        name: "Jewelry ERP",
-        status: "● LIVE", statusColor: "var(--green)",
-        desc: "Full desktop ERP for a jewelry business — invoicing, stock, GST reports, customer ledgers. Built solo with Tauri + SQLite, deployed on the client's machines, and used daily to run the shop.",
-        kv: { uptime: "98.7%", "first deploy": "2024-11", db: "SQLite (local-first)", users: "real, paying" },
-        tags: ["Tauri", "Rust", "SQLite", "TypeScript", "Desktop"],
-        links: [{ label: "→ Case Study", href: "#" }],
-      },
-      doccraft: {
-        name: "DocCraft AI",
-        status: "● LIVE", statusColor: "var(--green)",
-        desc: "LLM-powered document generation pipeline. Node service orchestrating Claude API calls with templated prompts, streaming output, and retry/backoff handling. Turns structured input into polished documents.",
-        kv: { uptime: "99.9%", "first deploy": "2025-03", llm: "Claude API", runtime: "Node.js" },
-        tags: ["Claude API", "Node.js", "Streaming", "Prompt Design"],
-        links: [{ label: "→ View Code", href: "#" }],
+        desc: "Production backend for a health & fitness platform. REST endpoints for workout planning, exercise management and notifications; JWT + OTP auth; a relational Supabase schema with foreign-key integrity. Shipped DLT/TRAI-compliant SMS OTP for Indian numbers after diagnosing carrier-level delivery failures.",
+        kv: { role: "Backend Developer", tenure: "Nov 2025 – Apr 2026", db: "Supabase (Postgres)", auth: "JWT + OTP (MSG91)" },
+        tags: ["FastAPI", "Node.js", "Supabase", "PostgreSQL", "Flutter", "Railway"],
+        links: [{ label: "→ GitHub", href: "https://github.com/KAUSHALCODER123" }],
       },
       "wa-bot": {
         name: "WhatsApp Bot",
         status: "◉ BETA", statusColor: "var(--amber)",
         desc: "Conversational automation on WhatsApp using n8n workflows and a Flowise RAG agent. Handles FAQs, lead capture, and handoff to a human when it gets out of its depth (it knows its depth).",
-        kv: { uptime: "97.1%", stage: "beta", flow: "n8n + Flowise", channel: "WhatsApp Business" },
+        kv: { stage: "beta", flow: "n8n + Flowise", channel: "WhatsApp Business", retrieval: "RAG" },
         tags: ["n8n", "Flowise", "RAG", "Webhooks", "Automation"],
-        links: [{ label: "→ Demo", href: "#" }],
+        links: [{ label: "→ View Code", href: "https://github.com/KAUSHALCODER123/wp-bot" }],
       },
     };
 
